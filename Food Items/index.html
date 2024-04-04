@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TEST</title>
+
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" href="./assest/bootstrap/css/bootstrap.min.css">
+
+    <!-- DataTable CSS -->
+    <link rel="stylesheet" href="./assest/datatable/dataTables.dataTables.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./assest/css/custom.css">
+</head>
+<body>
+
+    <div>
+        <div class="d-flex justify-content-center mt-3">
+            <div>
+                <h2 class="fw-bold text-uppercase">Food Items</h2>
+            </div>
+        </div>
+        <div>
+            <div class="d-flex justify-content-end me-3">
+                <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modalId" id="add">ADD</button>
+            </div>
+            <div class="table-responsive">
+                <table class="table" id="categoryTable">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th scope="col">Category name</th>
+                            <th scope="col">Category description</th>
+                            <th scope="col">Active</th>
+                            <th scope="col">New Category</th>
+                            <th scope="col">Edit</th>
+                            <th scope="col">Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+                
+            <!-- Pop UP -->
+            <div class="modal fade" id="modalId">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalTitleId">
+                                Add Category and Items...
+                            </h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="container-fluid">
+                                <form id="form">
+                                    <div>
+                                        <div class="d-flex justify-content-center mt-3">
+                                            <div class="fw-bold">
+                                                <h5>ADD Category</h5>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <label for="" class="form-label">Category Name</label>
+                                            <input type="text-box" class="form-control" id="categoryName" pattern="[a-zA-Z]+" required/>
+                                        </div>
+                                        <div>
+                                            <label for="" class="form-label">Category description</label>
+                                            <input type="text-area" class="form-control" id="categoryDescription" pattern="[a-zA-Z]+"/>
+                                        </div>
+                                        <div class="mt-3">
+                                            <input type="checkbox" class="form-check-input" checked />
+                                            <label for="" class="form-label">Active</label>                
+                                        </div>
+                                        <div>
+                                            <label for="" class="form-label">Launch Date</label>
+                                            <input type="date" class="form-control" id="launchDate" required/>
+                                        </div>
+                                    </div>
+                                    <div class="mt-3">
+                                        <div class="d-flex justify-content-between mt-3">
+                                            <div class="fw-bold">
+                                                <h5>ADD Items</h5>
+                                            </div>
+                                            <input type="button" value="+" id="addItemRow">
+                                        </div>
+                                        <div class="table-responsive">
+                                            <table class="table" id="itemTable">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">Item name</th>
+                                                        <th scope="col">Item description</th>
+                                                        <th scope="col">Food Type</th>
+                                                        <th scope="col">Price</th>
+                                                        <th scope="col">Discount</th>
+                                                        <th scope="col">GST</th>
+                                                        <th scope="col">Active</th>
+                                                        <th scope="col">Delete</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="itemBody">
+                                                    <tr>
+                                                        <td><input type="text-box" class="form-control" name="itemName" pattern="[a-zA-Z]+" required/></td>
+                                                        <td><input type="text-area" class="form-control" name="itemDescription" pattern="[a-zA-Z0-9@#$]+"/></td>
+                                                        <td>
+                                                            <select name="foodType">
+                                                                <option value="veg">Veg</option>
+                                                                <option value="dairyFood">Dairy food</option>
+                                                                <option value="seaFood">Sea food</option>
+                                                                <option value="vegan">Vegan</option>
+                                                                <option value="nonVeg">Nonveg</option>
+                                                            </select>
+                                                        </td>
+                                                        <td><input type="number" class="form-control" name="itemPrice" min="1" required/></td>
+                                                        <td><input type="number" class="form-control" name="itemAccount" min="1" max="15" required/></td>
+                                                        <td><input type="number" class="form-control" name="itemGST" min="0" required/></td>
+                                                        <td><input type="checkbox" class="form-check-input" checked /></td>
+                                                        <td><input type="button" value="-" id="deleteItemRow" disabled></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><input type="text-box" class="form-control" name="itemName" pattern="[a-zA-Z]+" required/></td>
+                                                        <td><input type="text-area" class="form-control" name="itemDescription" pattern="[a-zA-Z0-9@#$]+"/></td>
+                                                        <td>
+                                                            <select name="foodType">
+                                                                <option value="veg">Veg</option>
+                                                                <option value="dairyFood">Dairy food</option>
+                                                                <option value="seaFood">Sea food</option>
+                                                                <option value="vegan">Vegan</option>
+                                                                <option value="nonVeg">Nonveg</option>
+                                                            </select>
+                                                        </td>
+                                                        <td><input type="number" class="form-control" name="itemPrice" min="1" required/></td>
+                                                        <td><input type="number" class="form-control" name="itemAccount" min="1" max="15" required/></td>
+                                                        <td><input type="number" class="form-control" name="itemGST" min="0" required/></td>
+                                                        <td><input type="checkbox" class="form-check-input" checked /></td>
+                                                        <td><input type="button" value="-" id="deleteItemRow"></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex justify-content-center mt-3 mb-3">
+                                        <button type="submit" class="btn btn-success" id="submit">Submit</button>   
+                                    </div>                                                                
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    <!-- Bootstrap JS-->
+    <script src="./assest/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- DataTable JS -->
+    <script src="./assest/datatable/jquery-3.7.1.js"></script>
+    <script src="./assest/datatable/dataTables.js"></script>
+
+    <!-- Custom JS-->
+    <script src="./assest/js/custom.js"></script>
+    
+</body>
+</html>

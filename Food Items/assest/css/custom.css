@@ -1,0 +1,14 @@
+input[type="button"]{
+    width : 2rem;
+    height : 2rem;
+    border-radius: 1rem;
+}
+
+/* DataTable */
+div.dt-container div.dt-layout-row.dt-layout-table {
+    overflow-y: hidden;
+}
+
+table.dataTable th.dt-type-numeric, table.dataTable td.dt-type-numeric {
+    text-align: left;
+}
